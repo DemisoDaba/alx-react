@@ -6,13 +6,13 @@ module.exports = {
     main: path.resolve(__dirname, './js/dashboard_main.js'),
   },
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'public'), // Adjust the output path as needed
     filename: 'bundle.js',
   },
   performance: {
-		maxAssetSize: 1000000,
+    maxAssetSize: 1000000,
     maxEntrypointSize: 1000000,
-	},
+  },
   module: {
     rules: [
       {
@@ -24,14 +24,14 @@ module.exports = {
         type: 'asset/resource',
         use: [
           'file-loader',
-					{
-						loader: 'image-webpack-loader',
-						options: {
-							bypassOnDebug: true,
-							disable: true,
-						},
-					},
-				],
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: false, // Enable image optimization
+            },
+          },
+        ],
       },
     ]
   }
