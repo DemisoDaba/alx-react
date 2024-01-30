@@ -1,23 +1,19 @@
-
-'use strict';
+import $ from 'jquery';
+import _ from 'lodash';
 import '../css/main.css';
-const $ = require('jquery');
-const _ = require('lodash');
+import '../assets/holberton-logo.jpg';
 
+
+let count = 0;
 $('body').append('<p>Holberton Dashboard</p>');
 $('body').append('<p>Dashboard data for the students</p>');
 $('body').append('<button>Click here to get started</button>');
-$('body').append('<p id="count"></p>');
+$('body').append("<p id='count'></p>");
 $('body').append('<p>Copyright - Holberton School</p>');
 
-const updateCounter = () => {
-  let clicks = $('#count').html() || 0;
-  $('button').on('click', () => {
-    clicks++;
-    $('#count').html(`${clicks} clicks on the button`);
-  });
-};
-
-_.debounce(updateCounter, 500);
-updateCounter();
-
+function updateCounter() {
+    count++;
+    $('#count').html(`${count} clicks on the button`);
+}
+const debounced = _.debounce(updateCounter, 500);
+$('button').on('click', debounced);
