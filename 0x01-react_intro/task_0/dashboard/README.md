@@ -1,3 +1,3 @@
-# 0x02. React intro
+# task_0
 
-## Specializations > Web Stack programming > React
+
