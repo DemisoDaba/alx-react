@@ -31,16 +31,20 @@ This is guide to achieve the following objectives:
 
 ## Getting Started
 
-To get the most out of this repository, follow these steps:
+1. **To get the most out of this repository, follow these steps:**
 
-```bash
-# Clone this repository to your local machine:
-git clone https://github.com/your-username/react-intro.git
-cd react-intro
+```bash```
 
-# Navigate to the project directory and install dependencies:
-npm install
+Clone this repository to your local machine:
 
-# Start the development server:
-npm start
+```git clone https://github.com/DemisoDaba/react-intro.git```
+```cd react-intro```
+
+Navigate to the project directory and install dependencies:
+
+```npm install```
+
+Start the development server:
+
+```npm start```
 
