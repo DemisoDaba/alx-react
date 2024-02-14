@@ -1,26 +1,25 @@
 import React from "react";
-import CourseListRow from "./CourseListRow";
 import { shallow } from "enzyme";
+import CourseListRow from "./CourseListRow";
 
-describe("Course List Row component test", () => {
-  it("should render without crashing", () => {
-    const wrapper = shallow(<CourseListRow textFirstCell="test" />);
+describe('CourseListRow', () => {
+    it('CourseListRow renders one cell with colspan = 2 when textSecondCell does not exist', () => {
+        const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="Available courses" />);
+        expect(wrapper.find('th').prop("colSpan")).toBe(2);
+        expect(wrapper.find('th').text("Available courses"));
+    });
 
-    expect(wrapper.exists()).toBe(true);
-  });
+    it('CourseListRow renders two cells when textSecondCell exists', () => {
+        const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="Course name" textSecondCell="Credit" />);
+        expect(wrapper.find('tr').children()).toHaveLength(2);
+        expect(wrapper.find('tr').childAt(0).text()).toBe("Course name");
+        expect(wrapper.find('tr').childAt(1).text()).toBe("Credit");
+    });
 
-  it("should render one cell with colspan = 2 when textSecondCell null", () => {
-    const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="test" textSecondCell={null} />);
-
-    expect(wrapper.find("tr").children()).toHaveLength(1);
-    expect(wrapper.find("tr").childAt(0).html()).toEqual('<th colSpan="2">test</th>');
-  });
-
-  it("should render two cells when textSecondCell not null", () => {
-    const wrapper = shallow(<CourseListRow isHeader={false} textFirstCell="test" textSecondCell="test" />);
-
-    expect(wrapper.find("tr").children()).toHaveLength(2);
-    expect(wrapper.find("tr").childAt(0).html()).toEqual("<td>test</td>");
-    expect(wrapper.find("tr").childAt(1).html()).toEqual("<td>test</td>");
-  });
+    it('CourseListRow renders two td elements with a tr element', () => {
+        const wrapper = shallow(<CourseListRow isHeader={false} textFirstCell="ES6" textSecondCell="60" />);
+        expect(wrapper.find('tr').children()).toHaveLength(2);
+        expect(wrapper.find('tr').childAt(0).text()).toEqual("ES6");
+        expect(wrapper.find('tr').childAt(1).text()).toEqual("60");
+    });
 });

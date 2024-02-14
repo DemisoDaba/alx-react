@@ -1,12 +1,11 @@
 .App-header {
-  font-size: 1.4rem;
-  color: #e0354b;
-  display: flex;
-  align-items: center;
-  border-bottom: 3px solid #e0354b;
-}
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid #c1384c;
+    color: #c1384c;
+  }
 
-.App-header img {
-  width: 200px;
-  height: 200px;
-}
+  .App-logo{
+    width: 200px;
+    height: auto;
+  }
