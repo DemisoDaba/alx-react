@@ -1,23 +1,23 @@
+import { shallow } from "enzyme";
 import React from "react";
 import Login from "./Login";
-import { shallow } from "enzyme";
+import { StyleSheetTestUtils } from "aphrodite";
 
+beforeEach(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+});
 
-describe('<Login />', () => {
-    it('Login renders without crashing', () => {
-        const wrapper = shallow(<Login />);
-        expect(wrapper).toBeDefined();
-    });
-
-    it('Login renders 2 label tags', () => {
-        const wrapper = shallow(<Login />);
-        const element = wrapper.find('label');
-        expect(element).toHaveLength(2)
-    });
-
-    it('Login renders 2 input tags', () => {
-        const wrapper = shallow(<Login />);
-        const element = wrapper.find('input');
-        expect(element).toHaveLength(2)
-    });
+describe("Header", () => {
+  it("should render without crashing", () => {
+    const wrapper = shallow(<Login />);
+    expect(wrapper.exists()).toEqual(true);
+  });
+  it("should have 2 input tags and 2 label tags", () => {
+    const wrapper = shallow(<Login />);
+    expect(wrapper.find("label")).toHaveLength(2);
+    expect(wrapper.find("input")).toHaveLength(2);
+  });
 });
